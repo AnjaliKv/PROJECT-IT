@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BACKOUT-DATASET</title>
+  <meta name="description">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet"   href="{{ url_for('static', filename='css/imagehover.min.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+   google.charts.load('current', {'packages':['corechart']});
+   google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+
+     var data = google.visualization.arrayToDataTable([
+       ['Task', 'number'],
+       ['pass',     {{p}}],
+       ['backout',      {{f}}]
+       // ['Commute',  2],
+       // ['Watch TV', 2],
+       // ['Sleep',    7]
+     ]);
+
+     var options = {
+       title: 'Student pass details',
+       is3D: true,
+     };
+
+     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+     chart.draw(data, options);
+   }
+   </script>
+
+</head>
+<body>
+  <!--Navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">EXP<span>ERT</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{url_for('index1')}}">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+            <li><a href="{{url_for('placed2')}}">PLACEMENT</a></li>
+          <li><a href="{{url_for('backed1' )}}">BACKOUT</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+ <h1 align="left">Welcome {{name}} !</h1>
+  <!--Placement-->
+
+    <div class="container text-center">
+     <div class="header-section text-center">
+          <h2>BACKOUT DATASET UPLOAD</h2>
+
+        <!-- <form   action='/backupload' method='post' position="center" class="mc-trial row" enctype='multipart/form-data'>
+
+           Upload a csv file: <input type='file' name='fileToUpload' id='fileToUpload' style=" width: 30%; border: 3px ; padding: 10px;">
+           <br>
+              <input type='submit' value='Upload' class="btn btn-block btn-submit" style="margin: auto; width: 20%; border: 3px ; padding: 10px;">
+
+            </form>
+
+
+
+
+        </div>
+      </form> -->
+        <br>{{pred}}<br>
+        <br>{{percent}}<br>
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+          <footer id="footer" class="footer">
+      <!-- End newsletter-form -->
+      <!-- <ul class="social-links">
+        <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+      ©2020 . All rights reserved -->
+      <div class="credits">
+
+        Designed GECBH IT
+      </div>
+    </div>
+  </footer>
+  <!--/ Footer-->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+
+</html>
